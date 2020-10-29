@@ -1,0 +1,142 @@
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <img src="./assets/left-arrow.svg" (click)="back()" style="width: 18px;height: 58px; margin-left: 50%;">
+    </ion-buttons>
+    <ion-title class="ion-text-center">Tradedepot</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="ion-padding">
+
+  <form [formGroup]="registergrp" method="POST">
+    <ion-row style="text-align: center;">
+      <ion-col size="2"></ion-col>
+      <ion-col size="8">
+   
+      <h1 class="font">TECHWIZ</h1>
+    </ion-col>
+    <ion-col size="2"></ion-col>
+    </ion-row><br>
+    <!-- <ion-row>
+      <ion-col size="2.5"></ion-col>
+      <ion-col size="7" text-center>
+        <img src="assets/sms-id.svg" class="image">
+      </ion-col>
+      <ion-col size="2.5"></ion-col>
+    </ion-row> -->
+    <ion-row style="margin-bottom:25px;">
+    <ion-col size="12">
+    
+        <input  placeholder="Firt Name" formControlName="firstname" type="text" class="border">
+     
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.firstname">
+          <div
+            *ngIf="registergrp.get('firstname').hasError(validation.type) && (registergrp.get('firstname').dirty || registergrp.get('firstname').touched)"
+            class="adjust">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row  style="margin-bottom: -11px;">
+    <ion-col size="12">
+        <input placeholder="Last Name"  formControlName="lastname" class="border"type="text">
+    
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.lastname">
+          <div
+            *ngIf="registergrp.get('lastname').hasError(validation.type) && (registergrp.get('lastname').dirty || registergrp.get('lastname').touched)"
+            class="adjust">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </ion-col>
+  </ion-row><br><br>
+<ion-row style="margin-bottom:25px;">
+    <ion-col size="12">
+        <input formControlName="Email" placeholder="Email"class="border" type="text">
+     
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.Email">
+          <div
+            *ngIf="registergrp.get('Email').hasError(validation.type) && (registergrp.get('Email').dirty || registergrp.get('Email').touched)"
+            class="adjust">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </ion-col>
+  </ion-row>
+
+      <ion-row style="margin-bottom: 25px;">
+    <ion-col size="12">
+        <input formControlName="mobilenumber" placeholder="Mobile No" type="number" class="border">
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.mobilenumber">
+          <div
+            *ngIf="registergrp.get('mobilenumber').hasError(validation.type) && (registergrp.get('mobilenumber').dirty || registergrp.get('mobilenumber').touched)"
+            class="adjust">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+        <input [type]="showpass ? 'text' : 'password'" class="border" required="true" maxlength="12" placeholder="Password"formControlName="Password">
+    
+       
+   
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.Password">
+          <div
+            *ngIf="registergrp.get('Password').hasError(validation.type) && (registergrp.get('Password').dirty || registergrp.get('Password').touched)"
+            class="adjust">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </ion-col>
+  </ion-row>
+    <!-- <ion-col size="12">
+     
+        <input [type]="showg ? 'text' : 'password'" required="true" maxlength="12" formControlName="confirmPassword" placeholder="Confirm Password">
+      
+        <ion-button class="eye" (click)='show()' fill="clear">
+          <ion-icon name="eye">
+          </ion-icon>
+        </ion-button>
+     
+      <div class="validation.errors">
+        <ng-container *ngFor="let validation of validation_messages.confirmPassword">
+          <div
+            *ngIf="registergrp.get('confirmPassword').hasError(validation.type) && (registergrp.get('confirmPassword').dirty || registergrp.get('confirmPassword').touched)"
+            class="adjust">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+         <div class="validation.errors" *ngIf="registergrp.get('confirmPassword').errors && registergrp.hasError('passwordNotMatch') && (registergrp.get('confirmPassword').dirty || registergrp.get('confirmPassword').touched)">
+          Password and Confirm Password fields should match
+        </div> 
+       </div>
+    </ion-col> -->
+    
+    <ion-row class="bttn">
+      <ion-col size="12">
+        <button type="submit" class="btn" (click)="signup()" [disabled]="registergrp.invalid">SIGN UP</button>
+      </ion-col>
+    </ion-row>
+  
+  </form>
+
+  
+  <p class="newuser">If you are already registered. <a style="font-family: montserrat;color: #eb445ad1; text-decoration: none;" routerLink="/sign-in">Login</a></p>
+  
+
+
+</ion-content>
