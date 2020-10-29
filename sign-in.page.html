@@ -1,0 +1,67 @@
+<ion-content class="ion-padding">
+  <form [formGroup]="signingrp" method="POST">
+  <ion-row style="text-align: center;">
+    <ion-col size="2"></ion-col>
+    <ion-col size="8">
+
+      <h1 class="font">TECHWIZ</h1>
+    </ion-col>
+    <ion-col size="2"></ion-col>
+  </ion-row><br>
+  <ion-row>
+    <ion-col size="2.5"></ion-col>
+    <ion-col size="7" text-center>
+      <img src="assets/sms-id.svg" class="image">
+    </ion-col>
+    <ion-col size="2.5"></ion-col>
+  </ion-row>
+  <ion-row style="margin-bottom:25px;">
+    <ion-col size="12">
+        <input formControlName="Email" placeholder="Email"class="border" type="text">
+     
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.Email">
+          <div
+            *ngIf="signingrp.get('Email').hasError(validation.type) && (signingrp.get('Email').dirty || signingrp.get('Email').touched)"
+            class="adjust">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+        <input [type]="showpass ? 'text' : 'password'" class="border" required="true" maxlength="12" placeholder="Password"formControlName="Password">
+    
+       
+   
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.Password">
+          <div
+            *ngIf="signingrp.get('Password').hasError(validation.type) && (signingrp.get('Password').dirty || signingrp.get('Password').touched)"
+            class="adjust">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </ion-col>
+  </ion-row>
+  <div class="text-end">
+    <a href="#" class="remember" routerLink="/forgot-password">Remember Me</a>
+  </div>
+  <div class="text-end">
+    <a href="#" class="fgtpswd" routerLink="/forgot-password">Forgot Password?</a>
+  </div>
+
+  <ion-row class="bttn">
+    <ion-col size="12">
+      <button type="submit" class="btn" (click)="login()" [disabled]="signingrp.invalid">LOGIN</button>
+    </ion-col>
+  </ion-row>
+
+</form>
+  <p class="newuser">Don't have an account? <span class="signup" routerLink="/sign-up">Sign Up</span></p>
+
+
+</ion-content>
